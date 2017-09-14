@@ -22,7 +22,7 @@ function varargout = OpenImage(varargin)
 
 % Edit the above text to modify the response to help OpenImage
 
-% Last Modified by GUIDE v2.5 13-Sep-2017 21:05:20
+% Last Modified by GUIDE v2.5 14-Sep-2017 10:20:02
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -103,4 +103,27 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 image = getImage;
 greyscale = changeImagetoGrayscale(image);
+setImage(greyscale);
 imshow(greyscale);
+
+
+% --- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+brightness = setBrightness(image,1);
+setImage(brightness);
+imshow(brightness);
+
+
+% --- Executes on button press in pushbutton5.
+function pushbutton5_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+brightness = setBrightness(image,2);
+setImage(brightness);
+imshow(brightness);
