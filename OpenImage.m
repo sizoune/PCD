@@ -22,7 +22,7 @@ function varargout = OpenImage(varargin)
 
 % Edit the above text to modify the response to help OpenImage
 
-% Last Modified by GUIDE v2.5 14-Sep-2017 10:20:02
+% Last Modified by GUIDE v2.5 15-Sep-2017 12:29:28
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -73,12 +73,20 @@ function varargout = OpenImage_OutputFcn(~, ~, handles)
 varargout{1} = handles.output;
 
 function image = getImage
-global x
+global x;
 image = x;
 
 function setImage(value)
-global x
+global x;
 x = value;
+
+function origin = getOriginImage
+global y;
+origin = y;
+
+function setOriginImage(image)
+global y;
+y = image;
 
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(~, ~, ~)
@@ -92,6 +100,7 @@ else
    disp(['User selected ', fullfile(PathName, FileName)]);
    imshow(fullfile(PathName, FileName));
    citra = getMatrikfromPic(fullfile(PathName, FileName));
+   setOriginImage(citra);
    setImage(citra);
 end
 
@@ -127,3 +136,12 @@ image = getImage;
 brightness = setBrightness(image,2);
 setImage(brightness);
 imshow(brightness);
+
+
+% --- Executes on button press in pushbutton6.
+function pushbutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getOriginImage;
+imshow(image);
