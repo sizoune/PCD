@@ -5,10 +5,16 @@ function [ imageBrightness ] = setBrightness( citra,type )
         %jika type = 1 yaitu menerangkan maka citra akan ditambahkan dengan
         %50
         imageBrightness = citra + 50;
-    else
-        %jika type bukan 1 yaitu menggelapkan maka citra akan dikurangkan
+    elseif type == 2
+        %jika type = 2 yaitu menggelapkan maka citra akan dikurangkan
         %dengan 50
         imageBrightness = citra - 50;
+    elseif type == 3
+        %jika type = 3 maka citra akan dikalikan dengan 1,5
+        imageBrightness = citra * 1.5;
+    elseif type == 4
+        %jika type = 3 maka citra akan dibagi dengan 1,5
+        imageBrightness = citra / 1.5;
     end
 end
 

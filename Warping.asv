@@ -1,0 +1,19 @@
+function [ citra ] = Warping( citra_input )
+%Fungsi untuk warping gambar menjadi bentuk s
+%by Muhammad Wildan Iskandar (1301144316)
+%untuk mendapatkan banyak channel pada gambar
+jumChannel = size(citra_input,3);
+%inisialisasi status
+status = "kiri";
+%jika jumlah channel = 3 maka gambar adalah RGB
+if jumChannel == 3
+    %inisiasi matriks zero sebagai hasil warping
+    citra = zeros(size(citra_input,1),size(citra_input,2),3);
+    %proses warping gambar
+    for i=1:size(citra_input,1)
+        if status = "kiri"
+        else
+    end
+
+end
+

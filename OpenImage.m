@@ -22,16 +22,16 @@ function varargout = OpenImage(varargin)
 
 % Edit the above text to modify the response to help OpenImage
 
-% Last Modified by GUIDE v2.5 15-Sep-2017 13:22:03
+% Last Modified by GUIDE v2.5 02-Oct-2017 10:23:55
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
-                   'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @OpenImage_OpeningFcn, ...
-                   'gui_OutputFcn',  @OpenImage_OutputFcn, ...
-                   'gui_LayoutFcn',  [] , ...
-                   'gui_Callback',   []);
+    'gui_Singleton',  gui_Singleton, ...
+    'gui_OpeningFcn', @OpenImage_OpeningFcn, ...
+    'gui_OutputFcn',  @OpenImage_OutputFcn, ...
+    'gui_LayoutFcn',  [] , ...
+    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
     gui_State.gui_Callback = str2func(varargin{1});
 end
@@ -63,7 +63,7 @@ guidata(hObject, handles);
 
 
 % --- Outputs from this function are returned to the command line.
-function varargout = OpenImage_OutputFcn(~, ~, handles) 
+function varargout = OpenImage_OutputFcn(~, ~, handles)
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -89,21 +89,21 @@ global y;
 y = image;
 
 % --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(~, ~, ~)
+function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 [FileName,PathName] = uigetfile({'*.jpg';'*.png'},'Image Selector');
 if isequal(FileName,0)
-   disp('User selected Cancel')
+    disp('User selected Cancel')
 else
-   disp(['User selected ', fullfile(PathName, FileName)]);
-   imshow(fullfile(PathName, FileName));
-   citra = getMatrikfromPic(fullfile(PathName, FileName));
-   setOriginImage(citra);
-   setImage(citra);
+    disp(['User selected ', fullfile(PathName, FileName)]);
+    %imshow(fullfile(PathName, FileName));
+    citra = getMatrikfromPic(fullfile(PathName, FileName));
+    setOriginImage(citra);
+    setImage(citra);
+    imshow(citra);
 end
-
 
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
@@ -187,3 +187,59 @@ image = getImage;
 hasil = moveImage(image,3);
 setImage(hasil);
 imshow(hasil);
+
+
+% --- Executes on button press in pushbutton11.
+function pushbutton11_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton11 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+brightness = setBrightness(image,3);
+setImage(brightness);
+imshow(brightness);
+
+
+% --- Executes on button press in pushbutton12.
+function pushbutton12_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton12 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+brightness = setBrightness(image,4);
+setImage(brightness);
+imshow(brightness);
+
+
+% --- Executes on button press in pushbutton13.
+function pushbutton13_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton13 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+gambar = getImage;
+hasil = ZoomInOut(gambar,2);
+setImage(hasil);
+cla(handles.axes4,'reset');
+imshow(hasil, 'InitialMagnification', 100);
+
+% --- Executes on button press in pushbutton14.
+function pushbutton14_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton14 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+gambar = getImage;
+hasil = ZoomInOut(gambar,1);
+setImage(hasil);
+cla(handles.axes4,'reset');
+imshow(hasil, 'InitialMagnification', 100);
+
+
+% --- Executes on button press in pushbutton15.
+function pushbutton15_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton15 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+warping = Warping(image);
+setImage(warping);
+imshow(warping);
