@@ -342,14 +342,10 @@ function pushbutton16_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton16 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-rowstartS = get(handles.edRowStart, 'String');
-rowendS = get(handles.edRowEnd, 'String');
-colstartS = get(handles.edColStart, 'String');
-colendS = get(handles.edColEnd, 'String');
-rowstart = str2double(rowstartS);
-rowend = str2double(rowendS);
-colstart = str2double(colstartS);
-colend = str2double(colendS);
+rowstart = get(handles.edRowStart, 'Integer');
+rowend = get(handles.edRowEnd, 'Integer');
+colstart = get(handles.edColStart, 'Integer');
+colend = get(handles.edColEnd, 'String');
 if ~isempty(rowstart) && ~isempty(rowend) && ~isempty(colstart) && ~isempty(colend)
     image = getImage;
     croping = Croping(image,rowstart,rowend,colstart,colend);

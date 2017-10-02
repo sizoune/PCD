@@ -8,7 +8,7 @@ if jumChannel == 3
    %inisiasi matriks zero sebagai hasil warping
     citra = zeros(size(citra_input,1),size(citra_input,2),3);
     %proses warping gambar
-    for i=1:size(citra_input,1)
+    for i=1:size(citra_input,1) 
         for j=1:size(citra_input,2)
             citra(i,(size(citra_input,1)-mod(i-1,size(citra_input,1)))+(j-1),:)=citra_input(i,j,:);
         end
