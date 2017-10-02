@@ -22,7 +22,7 @@ function varargout = OpenImage(varargin)
 
 % Edit the above text to modify the response to help OpenImage
 
-% Last Modified by GUIDE v2.5 02-Oct-2017 11:32:22
+% Last Modified by GUIDE v2.5 02-Oct-2017 12:03:41
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -358,3 +358,14 @@ if ~isempty(rowstart) && ~isempty(rowend) && ~isempty(colstart) && ~isempty(cole
 else
     disp('data not completed yet');
 end
+
+
+% --- Executes on button press in pushbutton17.
+function pushbutton17_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton17 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+intensitas = Histogram(image);
+label = (0:255);
+bar(label, intensitas);
