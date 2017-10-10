@@ -391,8 +391,8 @@ row3c = str2double(get(handles.row3c, 'String'));
 if ~isempty(row1a) && ~isempty(row1b) && ~isempty(row1c)&& ~isempty(row2a) && ~isempty(row2b) && ~isempty(row2c)&& ~isempty(row3a) && ~isempty(row3b) && ~isempty(row3c)
     kernel = [row1a row1b row1c; row2a row2b row2c; row3a row3b row3c];
     image = getImage;
-    konv= Konvolusi(image,kernel);
-    imshow(konv);
+    konv = Konvolusi(image,kernel);
+    imshow(konv
 else
     disp('data not completed yet');
 end
