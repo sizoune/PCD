@@ -22,7 +22,7 @@ function varargout = OpenImage(varargin)
 
 % Edit the above text to modify the response to help OpenImage
 
-% Last Modified by GUIDE v2.5 05-Oct-2017 19:18:34
+% Last Modified by GUIDE v2.5 25-Oct-2017 11:48:52
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -601,3 +601,34 @@ function row3c_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in pushbutton19.
+function pushbutton19_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton19 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+meanfilter = NoiseReduction(image,1);
+setImage(meanfilter);
+imshow(meanfilter);
+
+% --- Executes on button press in pushbutton20.
+function pushbutton20_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton20 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+meanfilter = NoiseReduction(image,2);
+setImage(meanfilter);
+imshow(meanfilter);
+
+% --- Executes on button press in pushbutton21.
+function pushbutton21_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton21 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getImage;
+meanfilter = NoiseReduction(image,3);
+setImage(meanfilter);
+imshow(meanfilter);
