@@ -649,27 +649,21 @@ function pushbutton26_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton26 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-kernel = [-1 -1 -1; -1 8 -1; -1 -1 -1];
-image = getImage;
-konv= Konvolusi(image,kernel);
-imshow(konv);
+
 
 % --- Executes on button press in pushbutton25.
 function pushbutton25_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton25 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-kernel = [0 1 0; 1 -4 1; 0 1 0];
-image = getImage;
-konv= Konvolusi(image,kernel);
-imshow(konv);
+
 
 % --- Executes on button press in pushbutton24.
 function pushbutton24_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton24 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-kernel = [1 0 -1; 0 0 0; -1 0 1];
+kernel = [1 0 -1; 0 5 -1; 0 -1 0];
 image = getImage;
 konv= Konvolusi(image,kernel);
 imshow(konv);
